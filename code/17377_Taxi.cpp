@@ -30,11 +30,11 @@ int A, B, C, N, K;
 l x, y, p;
 string STR, G, D;
 
-map<string, ll> coords; //좌표들
-map<string, l> gas; //주유소
+map<string, ll> coords; //좌표 정보
+map<string, l> gas; //주유소 정보
 vector<pair<int, string>> cmd; //이동순서
 string cur; //현재 위치
-vector<pair<l, string>> passengers; 
+vector<pair<l, string>> passengers; //승객 정보(이동거리, 목적지)
 
 
 void getInput() {
@@ -120,7 +120,7 @@ int doCmds() {
         }
 
         //go to
-        //이동할 수 있는 남은 거리 계산
+        //남는 연료 확인하기
         l curx = coords[cur].X, cury = coords[cur].Y;
         l nextx = coords[loc].X, nexty = coords[loc].Y;
         int d = abs(curx-nextx) + abs(cury-nexty);
